@@ -10,7 +10,7 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapsable" aria-expanded="false">
 
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -20,10 +20,10 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse" id="navbar-collapsable">
             <ul class="nav navbar-nav">
-                <li class="<?php echo $page=='seminar'?'active':'' ?>"><a href="/seminar/view">Sąrašas</a></li>
-                <?php if($is_admin){ ?><li class="<?php echo $page=='users'?'active':'' ?>"><a href="/users">Vartotojai</a></li><?php } ?>
+                <li class="<?php echo $page=='seminar'?'active':'' ?>"><a href="/seminar">Sąrašas</a></li>
+                <?php if($is_admin){ ?><li class="<?php echo $page=='users'?'active':'' ?>"><a href="/admin">Administravimas</a></li><?php } ?>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/register">Registruotis</a></li>
@@ -39,7 +39,7 @@
                                             <input type="email" class="form-control" id="email" placeholder="E-paštas" required>
                                         </div>
                                         <div class="form-group">
-                                            <label class="sr-only" for="exampleInputPassword2">Slaptažodis</label>
+                                            <label class="sr-only" for="password">Slaptažodis</label>
                                             <input type="password" class="form-control" id="password" placeholder="Slaptažodis" required>
                                             <div class="help-block text-right"><a href="">Pamiršote slaptažodį ?</a></div>
                                         </div>
