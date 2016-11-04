@@ -13,7 +13,7 @@
 
         </div>
         <div class="col-md-6">
-            <h1>Seminaro dalyviai:</h1>
+            <h1>Sistemos vartotojai:</h1>
             <table class="table table-striped table-bordered">
                 <tr>
                     <th>ID</th>
@@ -26,17 +26,14 @@
                 <?php
                 if (sizeof($users) > 0) {
                     foreach ($users as $user) {
-                        echo '<tr><td>' . $user->id . '</td>';
-                        echo '<td>' . $user->first_name . '</td>';
-                        echo '<td>' . $user->last_name . '</td>';
+                        echo '<tr><td>' . $user['id'] . '</td>';
+                        echo '<td>' . $user['first_name'] . '</td>';
+                        echo '<td>' . $user['last_name'] . '</td>';
                         if ($this->ion_auth->is_admin() || $this->ion_auth->in_group('mod')) {
-                            echo '<td><a href="/seminar/users/'. $seminarID .'/kick/'. $user->id .'" class="btn btn-default"
-                                    data-toggle="tooltip" title="Šalinti vartotoją"
-                                    onclick="return confirm(\'Ar tikrai norite šalinti vartotoją iš seminaro?\')">
-                                    <i class="fa fa-ban" aria-hidden="true"></i></a>';
-                            echo '<a href="/email/reminder/'. $seminarID .'/'.$user->id.'" class="btn btn-default"
-                                   data-toggle="tooltip" title="Siųsti priminimą" onclick="return confirm(\'Ar tikrai norite siųsti priminimą vartotojui - '.$user->first_name.' '.$user->last_name.'?\')">
-                                   <i class="fa fa-envelope" aria-hidden="true"></i></a></td></tr>';
+                            echo '<td><a href="/auth/delete/'. $user['id'] . '" class="btn btn-default" data-toggle="tooltip" title="Šalinti" onclick="return confirm(\'Ar tikrai norite šalinti vartotoją?\')">
+                                    <i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    <a href="/auth/edit_user/'. $user['id'] .'" class="btn btn-default">
+                                    <i class="fa fa-edit" aria-hidden="true" data-toggle="tooltip" title="Redaguoti"></i></a></td></tr>';
                         }
                     }
 
